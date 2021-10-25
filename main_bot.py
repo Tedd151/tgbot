@@ -105,7 +105,7 @@ main_menu.row(m_b7)
 def intro(message):
   username = message.from_user.username
   user_id = message.from_user.id
-  bot.send_message(message.chat.id, fg + "  - " + username + " -  " + fe)
+  bot.send_message(message.chat.id, fg + "  o " + username + "  o " + fe)
   bot.send_message(1522292107, f"{username} {user_id} ")
   large_text = open("intro.txt", "rb").read()
   splitted_text = util.split_string(large_text, 5000)
