@@ -355,7 +355,7 @@ def text_handler(message):
     bot.send_message(message.chat.id, vdj_win)
     
   if message.text == 'vdj_mac' or message.text == 'Vdj_mac':
-    bot.send_message(message.chat.id, Vdj_mac)
+    bot.send_message(message.chat.id, vdj_mac)
     
 #software category 3 acid
   if message.text == 'sony_acid' or message.text == 'sony_acid':
