@@ -222,7 +222,7 @@ def text_handler(message):
   if message.text == 'password' or message.text == 'Password':
     username = message.from_user.username
     bot.send_message(1522292107, "password was requested by " + f"{username}")
-    bot.send_message(message.chat.id, "request received you will be contacted or chat my owner https://t.me/f70st")
+    bot.send_message(message.chat.id, "donate any amount to 0114460732 the password will be sent to you within 20minutes")
     
     #help
   if message.text == 'help' or message.text == 'Help':
