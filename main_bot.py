@@ -2,6 +2,7 @@ import telebot
 from telebot import util
 from telebot import types
 import random 
+from time import sleep
 
 bot = telebot.TeleBot("2047488618:AAESmFMai19fUtSYSyVAGKHN1fKqyNVWpRw")
 
@@ -21,11 +22,14 @@ sony_acid = "https://t.me/kdzresources/8"
 sony_acid8 = "https://t.me/kdzresources/24"
 sony_acid6 = "https://t.me/kdzresources/67"
 sony_acid10 = "https://t.me/kdzresources/26"
+sony_acid11 = ""
+
 
 sony_vegas16 = "https://t.me/kdzresources/35"
 sony_vegas15 = "https://t.me/kdzresources/53"
 sony_vegas14 = "https://t.me/kdzresources/34"
 sony_vegas13 = "https://t.me/kdzresources/57"
+sony_vegas20 = ""
 
 vdj_win = "https://t.me/kdzresources/20"
 vdj7 = "https://t.me/kdzresources/56"
@@ -88,7 +92,7 @@ def intro(message):
   username = message.from_user.username
   user_id = message.from_user.id
   bot.send_message(message.chat.id, "hello " + str(username))
-  bot.send_message(1522292107, f"{username} {user_id} ")
+ # bot.send_message("hello" f"{username} {user_id} "); sleep(2.0)
   large_text = open("intro.txt", "rb").read()
   splitted_text = util.split_string(large_text, 5000)
   bot.send_message(message.chat.id, splitted_text)
@@ -151,12 +155,12 @@ def text_handler(message):
     bot.send_message(message.chat.id, "Select an option" , reply_markup=ext)
     
   if message.text == 'kenyan_xtend' or message.text == 'Kenyan_xtend':
-    bot.send_message(message.chat.id, kenyaxtends, kenyaextends1)
+    bot.send_message(message.chat.id, kenyaxtends)
   if message.text == 'hiphop_xtend' or message.text == 'Hiphop_xtend':
     bot.send_message(message.chat.id, hiphopxtends)
     
   if message.text == 'dancehall_xtend' or message.text == 'Dancehall_xtend':
-    bot.send_message(message.chat.id, dancehall_xtend, dancehall_xtend1)
+    bot.send_message(message.chat.id, dancehall_xtend)
     bot.send_message(message.chat.id, dancehall_xtend1)
  
  #music category 2
@@ -216,14 +220,15 @@ def text_handler(message):
     bot.send_message(message.chat.id, large_text, 5000)
   if message.text == 'description' or message.text == 'Description':
     large_text = open("description.txt", "rb").read()
-    splitted_text = util.split_string(large_text, 5000)
-    bot.send_message(message.chat.id, large_text, 5000)
-      
+    splitted_text = util.smart_split(large_text, chars_per_string=3000)
+    for text in splitted_text:
+	    bot.send_message(message.chat.id, text)
+            
   if message.text == 'password' or message.text == 'Password':
     username = message.from_user.username
     bot.send_message(1522292107, "password was requested by " + f"{username}")
-    bot.send_message(message.chat.id, "request received you will be contacted or chat my owner https://t.me/f70st")
-    
+    bot.send_message(message.chat.id, "request received you will be contacted or contact  https://t.me/f70st"); sleep(1.0)
+    bot.send_message(message.chat.id, "note for some files a small amount of donation is required for maintainance")
     #help
   if message.text == 'help' or message.text == 'Help':
     help_menu = types.ReplyKeyboardMarkup(row_width=1)
@@ -234,11 +239,12 @@ def text_handler(message):
     help_menu.row(back)
     bot.send_message(message.chat.id, "Select an option", reply_markup=help_menu)
   if message.text == 'instructions' or message.text == 'Instructions':
-    large_text = open("instructions.txt", "rb").read()
-    splitted_text = util.split_string(large_text, 5000)
-    bot.send_message(message.chat.id, large_text, 5000)
-    photo = open('keyboard.jpg', 'rb')
-    bot.send_photo(message.chat.id, photo)
+     large_text = open("instructions.txt", "rb").read()
+     splitted_text = util.smart_split(large_text, chars_per_string=3000)
+     for text in splitted_text:
+	     bot.send_message(message.chat.id, text)
+     photo = open('keyboard.jpg', 'rb')
+     bot.send_photo(message.chat.id, photo)
   
   if message.text == 'Demo' or message.text == 'demo':
     bot.send_message(message.chat.id, video_demo)
@@ -247,17 +253,13 @@ def text_handler(message):
     #graphic_design
   if message.text == 'graphic_design' or message.text == 'Graphic_design':
     gfx_menu = types.ReplyKeyboardMarkup(row_width=1)
-    gfx1 = types.KeyboardButton('dee_the_realest')
+    gfx1 = types.KeyboardButton('comingsoon')
     gfx2 = types.KeyboardButton('contact my owner for the slot')
     back = types.KeyboardButton('back_to_main-menu')
     gfx_menu.row(gfx1)
     gfx_menu.row(gfx2)
     gfx_menu.row(back)
     bot.send_message(message.chat.id, "Select an option", reply_markup=gfx_menu)
-  if message.text == 'dee_the_realest' or message.text == 'Dee_the_realest':
-    photo = open('dee.jpg', 'rb')
-    bot.send_photo(message.chat.id, photo)
-    bot.send_message(message.chat.id, "wa.me/254795962112")
     
  #drops  
   if message.text == 'drops' or message.text == 'Drops':
@@ -348,10 +350,13 @@ def text_handler(message):
     vn7 = types.KeyboardButton('acidpro_7')
     vn8  = types.KeyboardButton('acidpro_8')
     vn10 = types.KeyboardButton('acidpro_10')
+    vn11 = types.KeyboardButton('acidpro_11')
     acid.row(vn6, vn7)
     acid.row(vn8, vn10)
+    acid.row(vn11)
     acid.row(back)
     bot.send_message(message.chat.id, "Select version", reply_markup=acid)
+    
   if message.text == 'acidpro_7' or message.text == 'Acidpro_7':
     bot.send_message(message.chat.id, sony_acid)
   if message.text == 'acidpro_6' or message.text == 'Acidpro_6':
@@ -360,7 +365,9 @@ def text_handler(message):
     bot.send_message(message.chat.id, sony_acid8)
   if message.text == 'acidpro_10' or message.text == 'Acidpro_10':
     bot.send_message(message.chat.id, sony_acid10)
-
+  if message.text == 'acidpro_11' or message.text == 'Acidpro_11':
+    comingsoon = open("coming.txt", "rb").read()
+    bot.send_message(message.chat.id, comingsoon)
 #software category 4 sony sony sony_vegas
   if message.text == 'sony_vegas' or message.text == 'sony_vegas':
     sv_menu = types.ReplyKeyboardMarkup(row_width=1)
@@ -368,9 +375,11 @@ def text_handler(message):
     sv2 = types.KeyboardButton('sonyvegas_pro14')
     sv3 = types.KeyboardButton('sonyvegas_pro15')
     sv4 = types.KeyboardButton('sonyvegas_pro16')
+    sv5 = types.KeyboardButton('sonyvegas_pro20')
     back = types.KeyboardButton('back_to_main-menu')
     sv_menu.row(sv1, sv2)
     sv_menu.row(sv3, sv4)
+    sv_menu.row(sv5)
     sv_menu.row(back)
     bot.send_message(message.chat.id, "Select an option " , reply_markup=sv_menu)
   if message.text == 'sonyvegas_pro13' or message.text == 'Sonyvegas_pro13':
@@ -381,6 +390,9 @@ def text_handler(message):
     bot.send_message(message.chat.id, sony_vegas15)
   if message.text == 'sonyvegas_pro16' or message.text == 'Sonyvegas_pro16':
     bot.send_message(message.chat.id, sony_vegas16)
+  if message.text == 'sonyvegas_pro20' or message.text == 'Sonyvegas_pro20':
+    comingsoon = open("coming.txt", "rb").read()
+    bot.send_message(message.chat.id, comingsoon)
     
  #softwares category 5
   if message.text == 'adobe' or message.text == 'Adobe':
@@ -390,11 +402,13 @@ def text_handler(message):
     itemc = types.KeyboardButton('lightroom')
     itemd = types.KeyboardButton('premier_pro')
     iteme = types.KeyboardButton('audition')
+    itemk = types.KeyboardButton('newer-verson')
     back = types.KeyboardButton('back_to_main-menu')
     
     markupa.row(itema, itemb)
     markupa.row(itemc, itemd)
     markupa.row(iteme)
+    markupa.row(itemk)
     markupa.row(back)
     
     bot.send_message(message.chat.id, "Select the software", reply_markup=markupa)
@@ -412,10 +426,16 @@ def text_handler(message):
       
   if message.text == 'audition' or message.text =='Audition':
     bot.send_message(message.chat.id, pa)
+  if message.text == 'newer-verson' or message.text == 'Newer-verson':
+    comingsoon = open("coming.txt", "rb").read()
+    bot.send_message(message.chat.id, comingsoon)
+
+#recordbox
+
     
- #category 6
   if message.text == 'recordbox' or message.text =='Recordbox':
-    bot.send_message(message.chat.id, recordbox6)
+   comingsoon = open("coming.txt", "rb").read()
+   bot.send_message(message.chat.id, comingsoon)
  #category 7
   if message.text == 'mix_emergency' or message.text =='mix_emergency':
     bot.send_message(message.chat.id, mix_emac)
