@@ -23,51 +23,35 @@ sony_acid8 = "https://t.me/kdzresources/24"
 sony_acid6 = "https://t.me/kdzresources/67"
 sony_acid10 = "https://t.me/kdzresources/26"
 sony_acid11 = ""
-
-
 sony_vegas16 = "https://t.me/kdzresources/35"
 sony_vegas15 = "https://t.me/kdzresources/53"
 sony_vegas14 = "https://t.me/kdzresources/34"
 sony_vegas13 = "https://t.me/kdzresources/57"
 sony_vegas20 = ""
-
 vdj_win = "https://t.me/kdzresources/20"
 vdj7 = "https://t.me/kdzresources/56"
-
-
 vdj_mac = "https://t.me/kdzresources/21"
-
 serato_v255 = "https://t.me/kdzresources/3"
 serato_v257 = "https://t.me/kdzresources/30"
 serato_macos = "https://t.me/kdzresources/54"
-
 passwordz = "https://t.me/f70st"
-
 vext = "https://t.me/kdzresources/62"
 vext1 = "https://t.me/kdzresources/63"
 vext2 = "https://t.me/kdzresources/64"
 vext3 = "https://t.me/kdzresources/65"
-
 kenyaxtends = "https://t.me/kdzresources/46"
 kenyaextends1 = "https://t.me/kdzresources/61"
 hiphopxtends = "https://t.me/kdzresources/43"
-
 east_acc = "https://t.me/kdzresources/37"
 dancehall_acc = "https://t.me/kdzresources/36"
-
 video_ext1 = "https://t.me/kdzresources/63"
 video_ext = "https://t.me/kdzresources/36"
 video_ext2 = "https://t.me/kdzresources/64"
 video_ext3 = "https://t.me/kdzresources/65"
-
 recordbox6 = "https://t.me/kdzresources/58"
-
-
 mix_emac = "https://t.me/kdzresources/9"
-
 sound_efx ="https://t.me/kdzresources/23"
 other = "coming soon.."
-
 
 
 #main_menu buttons
@@ -430,9 +414,7 @@ def text_handler(message):
     comingsoon = open("coming.txt", "rb").read()
     bot.send_message(message.chat.id, comingsoon)
 
-#recordbox
-
-    
+#recordbox    
   if message.text == 'recordbox' or message.text =='Recordbox':
    comingsoon = open("coming.txt", "rb").read()
    bot.send_message(message.chat.id, comingsoon)
