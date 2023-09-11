@@ -184,7 +184,7 @@ def text_handler(message):
     sm_menu.row(sm3)
     sm_menu.row(back)
     bot.send_message(message.chat.id, "Select an option", reply_markup=sm_menu)
-    
+ ## group   
   if message.text == 'group' or message.text == 'Group':
     gmenu = types.ReplyKeyboardMarkup(row_width=1)
     g1 = types.KeyboardButton('telegram')
