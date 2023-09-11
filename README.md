@@ -1,2 +1,2 @@
 # tgbot
-Telegeam bot
+Telegram bot
